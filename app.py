@@ -25,7 +25,7 @@ def home():
         cursor = connection.cursor()
         cursor.execute(
             'INSERT INTO contas (email, senha, localizacao)'
-            'VALUES (%s, %s)',
+            'VALUES (%s, %s, %s)',
             (email, senha, localizacao)
         )
         connection.commit()
