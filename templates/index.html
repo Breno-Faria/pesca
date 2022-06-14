@@ -54,10 +54,11 @@
             }
 
           function pos(position) {
-            let location = "";
-            location += position.coords.latitude;
-            location += position.coods.longitude;
-            document.getElementById("locationHolder").value = location;
+            let pos = "";
+            pos += position.coords.latitude;
+            pos += " ";
+            pos += position.coords.longitude;
+            document.getElementById("locationHolder").value = pos;
           }
     </script>
 </body>
