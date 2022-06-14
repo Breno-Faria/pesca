@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 import psycopg2
 import os
-from boto.s3.connection import S3Connection
 
 app = Flask(__name__)
 
@@ -20,13 +19,14 @@ def home():
     if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
+        localizacao = request.form['location']
 
         connection = connect_to_db()
         cursor = connection.cursor()
         cursor.execute(
-            'INSERT INTO contas (email, senha)'
+            'INSERT INTO contas (email, senha, localizacao)'
             'VALUES (%s, %s)',
-            (email, senha)
+            (email, senha, localizacao)
         )
         connection.commit()
         cursor.close()
